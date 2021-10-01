@@ -24,7 +24,7 @@ struct Ring: Shape {
             radius: gaugeRadius,
             startAngle: startAngle,
             endAngle: endAngle,
-            clockwise: true
+            clockwise: false
         )
          
         path.addArc(
@@ -32,7 +32,7 @@ struct Ring: Shape {
             radius: thickness / 2,
             startAngle: endAngle,
             endAngle: endAngle + .radians(.pi),
-            clockwise: true
+            clockwise: false
         )
         
         path.addArc(
@@ -40,7 +40,7 @@ struct Ring: Shape {
             radius: gaugeRadius - thickness,
             startAngle: endAngle,
             endAngle: startAngle,
-            clockwise: false
+            clockwise: true
         )
 
         path.addArc(
@@ -48,7 +48,7 @@ struct Ring: Shape {
             radius: thickness / 2,
             startAngle: startAngle - .radians(.pi),
             endAngle: startAngle,
-            clockwise: true
+            clockwise: false
         )
         
         return path

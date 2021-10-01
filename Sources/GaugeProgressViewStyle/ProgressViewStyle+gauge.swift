@@ -8,9 +8,9 @@
 import Foundation
 import SwiftUI
 
-@available(iOS 15, *)
-extension ProgressViewStyle where Self == GaugeProgressViewStyle {
-    public static var gauge: GaugeProgressViewStyle {
-        return GaugeProgressViewStyle()
-    }
-}
+//@available(iOS 15, *)
+//extension ProgressViewStyle where Self == GaugeProgressViewStyle {
+//    public static func gauge() -> GaugeProgressViewStyle where  {
+//        return GaugeProgressViewStyle()
+//    }
+//}
