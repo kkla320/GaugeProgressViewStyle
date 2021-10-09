@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct Gauge<Label: View, LowerLabel: View, UpperLabel: View>: View {
+struct Gauge<S: ShapeStyle & View, Label: View, LowerLabel: View, UpperLabel: View>: View {
     private let startAngle: Angle = .degrees(140)
     private let endAngle: Angle = .degrees(40)
     
+    private var shape: S
     private var thickness: CGFloat
     private var value: Double
     private var label: () -> Label
@@ -24,7 +25,7 @@ struct Gauge<Label: View, LowerLabel: View, UpperLabel: View>: View {
                 startAngle: startAngle,
                 endAngle: endAngle
             )
-            .fill(AngularGradient.trafficLight)
+            .fill(shape)
             
             GaugePointer(
                 size: thickness,
@@ -36,7 +37,7 @@ struct Gauge<Label: View, LowerLabel: View, UpperLabel: View>: View {
             
             GeometryReader { geometry in
                 if let text = lowerLabel() {
-                    AngularGradient.trafficLight
+                    shape
                         .mask(
                             text
                                 .gaugeLabelPosition(
@@ -48,7 +49,7 @@ struct Gauge<Label: View, LowerLabel: View, UpperLabel: View>: View {
                         )
                 }
                 if let text = upperLabel() {
-                    AngularGradient.trafficLight
+                    shape
                         .mask(
                             text
                                 .gaugeLabelPosition(
@@ -64,12 +65,14 @@ struct Gauge<Label: View, LowerLabel: View, UpperLabel: View>: View {
     }
     
     init(
+        shape: S,
         thickness: CGFloat,
         value: Double,
         label: @escaping () -> Label,
         lowerLabel: @escaping () -> LowerLabel?,
         upperLabel: @escaping () -> UpperLabel?
     ) {
+        self.shape = shape
         self.thickness = thickness
         self.value = value
         self.label = label
@@ -81,7 +84,7 @@ struct Gauge<Label: View, LowerLabel: View, UpperLabel: View>: View {
 struct Gauge_Preview: PreviewProvider {
     static var previews: some View {
         Group {
-            Gauge(thickness: 30, value: 0) {
+            Gauge(shape: Color.red, thickness: 30, value: 0) {
                 Text("Gauge")
             } lowerLabel: {
                 Text("12")
@@ -89,7 +92,7 @@ struct Gauge_Preview: PreviewProvider {
                 Text("24")
             }
             
-            Gauge(thickness: 30, value: 0.5) {
+            Gauge(shape: Color.red, thickness: 30, value: 0.5) {
                 Text("Gauge")
             } lowerLabel: {
                 Text("12")
@@ -100,7 +103,7 @@ struct Gauge_Preview: PreviewProvider {
         .previewLayout(.fixed(width: 300, height: 300))
         
         Group {
-            Gauge(thickness: 15, value: 0.5) {
+            Gauge(shape: Color.red, thickness: 15, value: 0.5) {
                 Text("Gauge")
             } lowerLabel: {
                 Text("12")
@@ -108,7 +111,7 @@ struct Gauge_Preview: PreviewProvider {
                 Text("24")
             }
             
-            Gauge(thickness: 15, value: 0.5) {
+            Gauge(shape: Color.red, thickness: 15, value: 0.5) {
                 Image(systemName: "sun.max.fill")
                     .imageScale(.large)
             } lowerLabel: {

@@ -14,7 +14,7 @@ struct Ring: Shape {
     var endAngle: Angle
     
     func path(in rect: CGRect) -> Path {
-        let gaugeRadius = rect.width / 2
+        let gaugeRadius = rect.shortestSide / 2
         let center = rect.center
         
         var path = Path()

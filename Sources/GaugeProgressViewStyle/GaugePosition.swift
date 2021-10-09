@@ -14,12 +14,12 @@ enum GaugePosition {
     
     func calculateRect(size: CGSize, angle: Angle, thickness: CGFloat) -> CGRect {
         let correctionForThickness = self == .left ? (thickness / 2) : -(thickness / 2)
-        let hypothenuse = (size.width / 2) - (thickness / 2)
+        let hypothenuse = (size.shortestSide / 2) - (thickness / 2)
         let topRightCorner = CGPoint(angle: angle, hypothenuse: hypothenuse)
             .manipulateX(byAdding: correctionForThickness)
         
         let width = abs(topRightCorner.x)
-        let height = (size.width / 2) - abs(topRightCorner.y)
+        let height = (size.shortestSide / 2) - abs(topRightCorner.y)
         let x = min((size.width / 2) + topRightCorner.x, (size.width / 2))
         let y = (size.height / 2) + topRightCorner.y
         

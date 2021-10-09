@@ -1,27 +1,47 @@
 import SwiftUI
 import Combine
 
-public struct GaugeProgressViewStyle<LowerLabel: View, UpperLabel: View>: ProgressViewStyle {
+public struct GaugeProgressViewStyle<S: ShapeStyle & View, LowerLabel: View, UpperLabel: View>: ProgressViewStyle {
+    private var shape: S
+    private var thickness: CGFloat = 12
     private var lowerLabel: () -> LowerLabel?
     private var upperLabel: () -> UpperLabel?
     
     public func makeBody(configuration: Configuration) -> some View {
-        Gauge(thickness: 12, value: configuration.fractionCompleted ?? 0) {
+        Gauge(
+            shape: shape,
+            thickness: thickness,
+            value: configuration.fractionCompleted ?? 0
+        ) {
             configuration.label
         } lowerLabel: {
             lowerLabel()
         } upperLabel: {
             upperLabel()
         }
-        .frame(width: 100, height: 100)
     }
     
-    public init() where LowerLabel == EmptyView, UpperLabel == EmptyView {
+    public init(thickness: CGFloat = 12) where S == AngularGradient, LowerLabel == EmptyView, UpperLabel == EmptyView {
+        self.shape = .trafficLight
+        self.thickness = thickness
         lowerLabel = { nil }
         upperLabel = { nil }
     }
     
-    public init<S1: StringProtocol, S2: StringProtocol>(lowerLabel: S1, upperLabel: S2) where LowerLabel == Text, UpperLabel == Text {
+    public init(shape: S, thickness: CGFloat = 12) where LowerLabel == EmptyView, UpperLabel == EmptyView {
+        self.shape = shape
+        self.thickness = thickness
+        lowerLabel = { nil }
+        upperLabel = { nil }
+    }
+    
+    public init<S1: StringProtocol, S2: StringProtocol>(
+        thickness: CGFloat = 12,
+        lowerLabel: S1,
+        upperLabel: S2
+    ) where S == AngularGradient, LowerLabel == Text, UpperLabel == Text {
+        self.shape = .trafficLight
+        self.thickness = thickness
         self.lowerLabel = {
             Text(lowerLabel)
         }
@@ -30,7 +50,45 @@ public struct GaugeProgressViewStyle<LowerLabel: View, UpperLabel: View>: Progre
         }
     }
     
-    public init(lowerLabelSystemName: String, upperLabelSystemName: String) where LowerLabel == Image, UpperLabel == Image {
+    public init<S1: StringProtocol, S2: StringProtocol>(
+        shape: S,
+        thickness: CGFloat = 12,
+        lowerLabel: S1,
+        upperLabel: S2
+    ) where LowerLabel == Text, UpperLabel == Text {
+        self.shape = shape
+        self.thickness = thickness
+        self.lowerLabel = {
+            Text(lowerLabel)
+        }
+        self.upperLabel = {
+            Text(upperLabel)
+        }
+    }
+    
+    public init(
+        thickness: CGFloat = 12,
+        lowerLabelSystemName: String,
+        upperLabelSystemName: String
+    ) where S == AngularGradient, LowerLabel == Image, UpperLabel == Image {
+        self.shape = .trafficLight
+        self.thickness = thickness
+        self.lowerLabel = {
+            Image(systemName: lowerLabelSystemName)
+        }
+        self.upperLabel = {
+            Image(systemName: upperLabelSystemName)
+        }
+    }
+    
+    public init(
+        shape: S,
+        thickness: CGFloat = 12,
+        lowerLabelSystemName: String,
+        upperLabelSystemName: String
+    ) where LowerLabel == Image, UpperLabel == Image {
+        self.shape = shape
+        self.thickness = thickness
         self.lowerLabel = {
             Image(systemName: lowerLabelSystemName)
         }
@@ -72,6 +130,6 @@ struct GaugeProgressViewStyle_Preview: PreviewProvider {
                 )
             )
         }
-        .previewLayout(.fixed(width: 200, height: 200))
+        .previewLayout(.fixed(width: 250, height: 200))
     }
 }

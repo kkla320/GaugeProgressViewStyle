@@ -24,10 +24,10 @@ struct GaugePointer: View {
                 .offset(
                     x: CGPoint(
                         angle: angle,
-                        hypothenuse: (geometry.size.width / 2) - (size / 2)).x,
+                        hypothenuse: (geometry.size.shortestSide / 2) - (size / 2)).x,
                     y: CGPoint(
                         angle: angle,
-                        hypothenuse: (geometry.size.height / 2) - (size / 2)).y
+                        hypothenuse: (geometry.size.shortestSide / 2) - (size / 2)).y
                 )
                 .frame(width: geometry.size.width, height: geometry.size.height)
         }
