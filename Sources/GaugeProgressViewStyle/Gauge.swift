@@ -30,8 +30,9 @@ struct Gauge<S: ShapeStyle & View, Label: View, LowerLabel: View, UpperLabel: Vi
             GaugePointer(
                 size: thickness,
                 lineWidth: 2,
-                angle: startAngle + ((.degrees(360) - (startAngle - endAngle)) * value)
+                angle: startAngle
             )
+            .rotationEffect(((.degrees(360) - (startAngle - endAngle)) * value), anchor: UnitPoint.center)
             
             label()
             
@@ -111,7 +112,7 @@ struct Gauge_Preview: PreviewProvider {
                 Text("24")
             }
             
-            Gauge(shape: Color.red, thickness: 15, value: 0.5) {
+            Gauge(shape: Color.red, thickness: 15, value: 1) {
                 Image(systemName: "sun.max.fill")
                     .imageScale(.large)
             } lowerLabel: {
