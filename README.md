@@ -1,5 +1,7 @@
 # GaugeProgressViewStyle
 
+[![Swift](https://github.com/kkla320/GaugeProgressViewStyle/actions/workflows/swift.yml/badge.svg?branch=develop)](https://github.com/kkla320/GaugeProgressViewStyle/actions/workflows/swift.yml)
+
 GaugeProgressViewStyle adds the Apple Watch gauge view to iOS.
 
 ## Installation
