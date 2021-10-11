@@ -20,4 +20,4 @@ jobs:
     - name: Build
       run: xcodebuild -scheme GaugeProgressViewStyle -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro'
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild -scheme GaugeProgressViewStyle -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro' test
