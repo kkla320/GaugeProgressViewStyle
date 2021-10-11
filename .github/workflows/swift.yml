@@ -13,9 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: fwal/setup-swift@v1
-      with:
-        swift-version: "5.5.0"
+    - name: Set Xcode version
+      run: xcode-select — switch /Applications/Xcode_13.0.app
+    - name: Get Swift version
+      run: swift --version
     - name: Build
       run: swift build -v
     - name: Run tests
