@@ -1,12 +1,16 @@
 import SwiftUI
 import Combine
 
+/// A progress view that visually indicates its progress using a gauge.
 public struct GaugeProgressViewStyle<S: ShapeStyle & View, LowerLabel: View, UpperLabel: View>: ProgressViewStyle {
     private var shape: S
     private var thickness: CGFloat = 12
     private var lowerLabel: () -> LowerLabel?
     private var upperLabel: () -> UpperLabel?
     
+    /// Creates a view representing the body of a progress view.
+    /// - Parameter configuration: The properties of the progress view being created.
+    /// - Returns: A view representing the body of a progress view.
     public func makeBody(configuration: Configuration) -> some View {
         Gauge(
             shape: shape,
