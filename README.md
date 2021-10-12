@@ -1,6 +1,6 @@
 # GaugeProgressViewStyle
 
-[![Swift](https://github.com/kkla320/GaugeProgressViewStyle/actions/workflows/swift.yml/badge.svg?branch=develop&event=push)](https://github.com/kkla320/GaugeProgressViewStyle/actions/workflows/swift.yml)
+[![Swift](https://github.com/kkla320/GaugeProgressViewStyle/actions/workflows/swift.yml/badge.svg?branch=develop&event=push)](https://github.com/kkla320/GaugeProgressViewStyle/actions/workflows/swift.yml) ![](https://img.shields.io/badge/Swift-5.5-orange) ![](https://img.shields.io/badge/spm-compatible-green)
 
 GaugeProgressViewStyle adds the Apple Watch gauge view to iOS.
 
