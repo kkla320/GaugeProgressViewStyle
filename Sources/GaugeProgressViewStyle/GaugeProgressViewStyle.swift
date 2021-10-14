@@ -77,6 +77,7 @@ struct GaugeProgressViewStyle_Preview: PreviewProvider {
                 }
             )
         }
+        .padding()
         .previewLayout(.fixed(width: 250, height: 200))
     }
 }

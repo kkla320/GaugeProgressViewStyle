@@ -1,4 +1,4 @@
-# GaugeProgressViewStyle
+![](logo.png)
 
 [![Swift](https://github.com/kkla320/GaugeProgressViewStyle/actions/workflows/swift.yml/badge.svg?branch=develop&event=push)](https://github.com/kkla320/GaugeProgressViewStyle/actions/workflows/swift.yml)
 
