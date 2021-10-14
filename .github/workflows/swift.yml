@@ -21,8 +21,7 @@ jobs:
       run: xcodebuild -scheme GaugeProgressViewStyle -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro'
     - name: Run tests
       run: xcodebuild -scheme GaugeProgressViewStyle -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro' test | xcpretty
-    - name: Build documentation
-      run: jazzy
+    - uses: uses: sersoft-gmbh/swifty-docs-action@v1
     - uses: EndBug/add-and-commit@v7
       with:
         add: 'Docs'
