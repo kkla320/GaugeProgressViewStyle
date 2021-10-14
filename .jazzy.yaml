@@ -1,0 +1,11 @@
+author: Kevin Klaebe
+github_url: https://github.com/kkla320/GaugeProgressViewStyle
+output: Docs
+swift_build_tool: xcodebuild
+xcodebuild_arguments:
+  - -scheme
+  - GaugeProgressViewStyle
+  - -sdk
+  - iphoneos
+  - -destination
+  - 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro'
