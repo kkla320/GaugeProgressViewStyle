@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GaugeProgressViewStyle - ProgressViewStyle</title>
+    <link rel="stylesheet" type="text/css" href="./all.css" media="all" />
+</head>
+<body>
+    <header>
+        <a href="./">
+            <strong>
+                GaugeProgressViewStyle
+            </strong>
+            <span>Documentation</span>
+        </a>
+    </header>
+
+    <!--
+    <form class="search">
+        <input type="search" placeholder="Search" />
+    </form>
+    -->
+
+    <nav>
+        <div class="wrapper">
+            <h2>On This Page</h2>
+            <ol><li><a href="#methods">Methods</a><ul><li class="function"><a href="#progressviewstyle.gauge(thickness:)">gauge(thickness:​)</a></li><li class="function"><a href="#progressviewstyle.gauge(thickness:lowerlabel:upperlabel:)">gauge(thickness:​lower​Label:​upper​Label:​)</a></li><li class="function"><a href="#progressviewstyle.gauge(shape:thickness:)">gauge(shape:​thickness:​)</a></li><li class="function"><a href="#progressviewstyle.gauge(shape:thickness:lowerlabel:upperlabel:)">gauge(shape:​thickness:​lower​Label:​upper​Label:​)</a></li></ul></li></ol>
+        </div>
+    </nav>
+
+    <main>
+        <article>
+            <h1>
+    <small>Extensions on</small>
+    <code class="name">ProgressViewStyle</code>
+</h1>
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="function" id="progressviewstyle.gauge(thickness:)">
+    <h3>
+        <code><a href="#progressviewstyle.gauge(thickness:)">gauge(thickness:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">gauge</span>(<span class="variable">thickness</span>: <span class="type">CGFloat</span> = <span class="number literal">12</span>) -&gt; <a href="./GaugeProgressViewStyle"><span class="type">GaugeProgressViewStyle</span></a>&lt;<span class="type">AngularGradient</span>, <span class="type">EmptyView</span>, <span class="type">EmptyView</span>&gt; <span class="keyword">where</span> <span class="keyword">Self</span> == <a href="./GaugeProgressViewStyle"><span class="type">GaugeProgressViewStyle</span></a>&lt;<span class="type">AngularGradient</span>, <span class="type">EmptyView</span>, <span class="type">EmptyView</span>&gt;  </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>A progress view that visually indicates its progress using a gauge.</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>thickness</th>
+    <td><code class="type">CGFloat</code></td>
+    <td><p>The thickness of the gauge.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Returns</h4>
+  <p>A view representing the body of a progress view with traffic light angular gradient and no labels for the lowest and highest value.</p>
+
+</div>
+<div role="article" class="function" id="progressviewstyle.gauge(thickness:lowerlabel:upperlabel:)">
+    <h3>
+        <code><a href="#progressviewstyle.gauge(thickness:lowerlabel:upperlabel:)">gauge(thickness:​lower​Label:​upper​Label:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">gauge</span>&lt;<span class="variable">LowerLabel</span>: <span class="type">View</span>, <span class="variable">UpperLabel</span>: <span class="type">View</span>&gt;(
+        <span class="variable">thickness</span>: <span class="type">CGFloat</span> = <span class="number literal">12</span>,
+        <span class="attribute">@</span><span class="type">ViewBuilder</span> <span class="variable">lowerLabel</span>: <span class="attribute">@</span><span class="attribute">escaping</span> () -&gt; <span class="type">LowerLabel</span>,
+        <span class="attribute">@</span><span class="type">ViewBuilder</span> <span class="variable">upperLabel</span>: <span class="attribute">@</span><span class="attribute">escaping</span> () -&gt; <span class="type">UpperLabel</span>
+    ) -&gt; <a href="./GaugeProgressViewStyle"><span class="type">GaugeProgressViewStyle</span></a>&lt;<span class="type">AngularGradient</span>, <span class="type">LowerLabel</span>, <span class="type">UpperLabel</span>&gt; <span class="keyword">where</span> <span class="keyword">Self</span> == <a href="./GaugeProgressViewStyle"><span class="type">GaugeProgressViewStyle</span></a>&lt;<span class="type">AngularGradient</span>, <span class="type">LowerLabel</span>, <span class="type">UpperLabel</span>&gt;  </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>A progress view that visually indicates its progress using a gauge.</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>thickness</th>
+    <td><code class="type">CGFloat</code></td>
+    <td><p>The thickness of the gauge.</p>
+</td>
+</tr>
+<tr>
+    <th>lower​Label</th>
+    <td><code class="type">@escaping () -&gt; Lower​Label</code></td>
+    <td><p>A view builder that creates a view that describes the lowest value of the gauge.</p>
+</td>
+</tr>
+<tr>
+    <th>upper​Label</th>
+    <td><code class="type">@escaping () -&gt; Upper​Label</code></td>
+    <td><p>A view builder that creates a view that describes the highest value of the gauge.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Returns</h4>
+  <p>A view representing the body of a progress view with traffic light angular gradient and a minimum and maximum label.</p>
+
+</div>
+<div role="article" class="function" id="progressviewstyle.gauge(shape:thickness:)">
+    <h3>
+        <code><a href="#progressviewstyle.gauge(shape:thickness:)">gauge(shape:​thickness:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">gauge</span>&lt;<span class="variable">S</span>: <span class="type">ShapeStyle</span> &amp; <span class="type">View</span>&gt;(<span class="variable">shape</span>: <span class="type">S</span>, <span class="variable">thickness</span>: <span class="type">CGFloat</span> = <span class="number literal">12</span>) -&gt; <a href="./GaugeProgressViewStyle"><span class="type">GaugeProgressViewStyle</span></a>&lt;<span class="type">S</span>, <span class="type">EmptyView</span>, <span class="type">EmptyView</span>&gt; <span class="keyword">where</span> <span class="keyword">Self</span> == <a href="./GaugeProgressViewStyle"><span class="type">GaugeProgressViewStyle</span></a>&lt;<span class="type">S</span>, <span class="type">EmptyView</span>, <span class="type">EmptyView</span>&gt;  </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>A progress view that visually indicates its progress using a gauge.</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>shape</th>
+    <td><code class="type">S</code></td>
+    <td><p>The shape used for coloring the gauge.</p>
+</td>
+</tr>
+<tr>
+    <th>thickness</th>
+    <td><code class="type">CGFloat</code></td>
+    <td><p>The thickness of the gauge.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Returns</h4>
+  <p>A view representing the body of a progress view with the shape and no labels for the lowest and highest value.</p>
+
+</div>
+<div role="article" class="function" id="progressviewstyle.gauge(shape:thickness:lowerlabel:upperlabel:)">
+    <h3>
+        <code><a href="#progressviewstyle.gauge(shape:thickness:lowerlabel:upperlabel:)">gauge(shape:​thickness:​lower​Label:​upper​Label:​)</a></code>
+    </h3>
+    <div class="declaration">
+<pre class="highlight"><code><html><body><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">func</span> <span class="function">gauge</span>&lt;<span class="variable">S</span>: <span class="type">ShapeStyle</span> &amp; <span class="type">View</span>, <span class="variable">LowerLabel</span>: <span class="type">View</span>, <span class="variable">UpperLabel</span>: <span class="type">View</span>&gt;(
+        <span class="variable">shape</span>: <span class="type">S</span>,
+        <span class="variable">thickness</span>: <span class="type">CGFloat</span> = <span class="number literal">12</span>,
+        <span class="attribute">@</span><span class="type">ViewBuilder</span> <span class="variable">lowerLabel</span>: <span class="attribute">@</span><span class="attribute">escaping</span> () -&gt; <span class="type">LowerLabel</span>,
+        <span class="attribute">@</span><span class="type">ViewBuilder</span> <span class="variable">upperLabel</span>: <span class="attribute">@</span><span class="attribute">escaping</span> () -&gt; <span class="type">UpperLabel</span>
+    ) -&gt; <a href="./GaugeProgressViewStyle"><span class="type">GaugeProgressViewStyle</span></a>&lt;<span class="type">S</span>, <span class="type">LowerLabel</span>, <span class="type">UpperLabel</span>&gt; <span class="keyword">where</span> <span class="keyword">Self</span> == <a href="./GaugeProgressViewStyle"><span class="type">GaugeProgressViewStyle</span></a>&lt;<span class="type">S</span>, <span class="type">LowerLabel</span>, <span class="type">UpperLabel</span>&gt;  </body></html></code></pre>
+</div>
+<div class="summary" role="doc-abstract">
+    <p>A progress view that visually indicates its progress using a gauge.</p>
+
+</div>
+<h4>Parameters</h4>
+
+<table class="parameters">
+  <thead hidden>
+  <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <th>shape</th>
+    <td><code class="type">S</code></td>
+    <td><p>The shape used for coloring the gauge.</p>
+</td>
+</tr>
+<tr>
+    <th>thickness</th>
+    <td><code class="type">CGFloat</code></td>
+    <td><p>The thickness of the gauge.</p>
+</td>
+</tr>
+<tr>
+    <th>lower​Label</th>
+    <td><code class="type">@escaping () -&gt; Lower​Label</code></td>
+    <td><p>A view builder that creates a view that describes the lowest value of the gauge.</p>
+</td>
+</tr>
+<tr>
+    <th>upper​Label</th>
+    <td><code class="type">@escaping () -&gt; Upper​Label</code></td>
+    <td><p>A view builder that creates a view that describes the highest value of the gauge.</p>
+</td>
+</tr>
+  </tbody>
+</table>
+  <h4>Returns</h4>
+  <p>A view representing the body of a progress view with the shape and a minimum and maximum label.</p>
+
+</div>
+    </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>
+    Generated on <time datetime="2021-10-18T09:38:38+0000">October 18, 2021</time> using <a href="https://github.com/SwiftDocOrg/swift-doc">swift-doc</a> <span class="version">1.0.0-rc.1</span>.
+</p>
+    </footer>
+</body>
+</html>
