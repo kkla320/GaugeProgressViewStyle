@@ -38,6 +38,8 @@ jobs:
         format: "html"
     - uses: EndBug/add-and-commit@v7
       with:
-        add: 'Docs'
+        author_name: "Kevin Klaebe"
+        author_email: "kevin.klaebe@icloud.com"
+        add: './Docs'
         message: 'Update documentation'
       
