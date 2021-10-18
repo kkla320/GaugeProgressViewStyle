@@ -35,14 +35,10 @@ jobs:
         inputs: "Sources"
         module-name: GaugeProgressViewStyle
         output: "./docs"
-    - name: Fix persmissions
-      run: sudo chmod -R +rwx ./docs
-    - name: List files
-      run: ls -al
-    - uses: EndBug/add-and-commit@v7
+    - name: Upload Documentation to Wiki
+      uses: SwiftDocOrg/github-wiki-publish-action@v1
       with:
-        author_name: "Kevin Klaebe"
-        author_email: "kevin.klaebe@icloud.com"
-        add: './docs'
-        message: 'Update documentation'
+        path: "./doc"
+      env:
+        GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
       
