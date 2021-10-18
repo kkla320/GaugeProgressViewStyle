@@ -34,7 +34,8 @@ jobs:
       with:
         inputs: "Sources"
         module-name: GaugeProgressViewStyle
-        output: "Docs"
+        output: "./Docs"
+        format: "html"
     - uses: EndBug/add-and-commit@v7
       with:
         add: 'Docs'
