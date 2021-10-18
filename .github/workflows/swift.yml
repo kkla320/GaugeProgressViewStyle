@@ -37,7 +37,7 @@ jobs:
         output: "./Docs"
         format: "html"
     - name: Fix persmissions
-      run: chmod -R +rwx ./Docs
+      run: sudo chmod -R +rwx ./Docs
     - name: List files
       run: ls -al
     - uses: EndBug/add-and-commit@v7
