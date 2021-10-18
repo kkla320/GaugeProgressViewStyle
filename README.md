@@ -15,6 +15,7 @@ To install GaugeProgressViewStyle, add GaugeProgressViewStyle as a dependency to
 ## Usage
 
 Simply use the `progressViewStyle` method of `ProgressView` and pass the GaugeProgressViewStyle via one of the static members named `gauge`.
+Please have a look in the [wiki](https://github.com/kkla320/GaugeProgressViewStyle/wiki) for detailed documentation.
 
 ## Requirements
 
