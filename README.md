@@ -9,7 +9,7 @@ GaugeProgressViewStyle adds the Apple Watch gauge view to iOS.
 To install GaugeProgressViewStyle, add GaugeProgressViewStyle as a dependency to your Package.swift file.
 
 ```swift
-.package(url: "https://github.com/kkla320/GaugeView.git", from: "1.0.0-beta.1")
+.package(url: "https://github.com/kkla320/GaugeView.git", from: "1.0.0-beta.2")
 ```
 
 ## Usage
