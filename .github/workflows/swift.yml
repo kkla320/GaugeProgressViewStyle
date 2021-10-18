@@ -34,7 +34,7 @@ jobs:
       with:
         inputs: "Sources"
         module-name: GaugeProgressViewStyle
-        output: "./Docs"
+        output: "./docs"
         format: "html"
     - name: Fix persmissions
       run: sudo chmod -R +rwx ./Docs
@@ -44,6 +44,6 @@ jobs:
       with:
         author_name: "Kevin Klaebe"
         author_email: "kevin.klaebe@icloud.com"
-        add: './Docs'
+        add: './docs'
         message: 'Update documentation'
       
