@@ -17,8 +17,8 @@ extension AngularGradient {
                 .green
             ],
             center: .center,
-            startAngle: .degrees(180),
-            endAngle: .degrees(360)
+            startAngle: .angularGradientGaugeStart,
+            endAngle: .angularGradientGaugeEnd
         )
     }
 }
