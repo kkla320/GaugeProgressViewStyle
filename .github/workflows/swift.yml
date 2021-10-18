@@ -21,3 +21,26 @@ jobs:
       run: xcodebuild -scheme GaugeProgressViewStyle -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro'
     - name: Run tests
       run: xcodebuild -scheme GaugeProgressViewStyle -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro' test | xcpretty
+        
+  documentation:
+    needs: build
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: develop
+    - name: Generate Documentation
+      uses: SwiftDocOrg/swift-doc@master
+      with:
+        inputs: "Sources"
+        module-name: GaugeProgressViewStyle
+        output: "./docs"
+    - name: Upload Documentation to Wiki
+      uses: SwiftDocOrg/github-wiki-publish-action@v1
+      with:
+        path: "./docs"
+      env:
+        GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
+      
