@@ -36,6 +36,8 @@ jobs:
         module-name: GaugeProgressViewStyle
         output: "./Docs"
         format: "html"
+    - name: List files
+      run: ls -al
     - uses: EndBug/add-and-commit@v7
       with:
         author_name: "Kevin Klaebe"
