@@ -31,7 +31,11 @@ Please have a look in the [wiki](https://github.com/kkla320/GaugeProgressViewSty
   ```
 
   </td>
-  <td>Result</td>
+  <td>
+  
+  ![No parameters](Screenshots/sample_withoutParameters.png)
+  
+  </td>
 </tr>
 <tr>
   <td>
@@ -42,7 +46,11 @@ Please have a look in the [wiki](https://github.com/kkla320/GaugeProgressViewSty
   ```
 
   </td>
-  <td>Result</td>
+  <td>
+  
+  ![Custom thickness](Screenshots/sample_withCustomThickness.png)
+  
+  </td>
 </tr>
 <tr>
   <td>
@@ -55,7 +63,11 @@ Please have a look in the [wiki](https://github.com/kkla320/GaugeProgressViewSty
   ```
 
   </td>
-  <td>Result</td>
+  <td>
+  
+  ![With label](Screenshots/sample_withLabel.png)
+  
+  </td>
 </tr>
 <tr>
   <td>
@@ -72,7 +84,11 @@ Please have a look in the [wiki](https://github.com/kkla320/GaugeProgressViewSty
   ```
 
   </td>
-  <td>Result</td>
+  <td>
+  
+  ![With upper lower labels](Screenshots/sample_withTextUpperAndLowerLabel.png)
+  
+  </td>
 </tr>
 <tr>
   <td>
@@ -89,7 +105,11 @@ Please have a look in the [wiki](https://github.com/kkla320/GaugeProgressViewSty
   ```
 
   </td>
-  <td>Result</td>
+  <td>
+  
+  ![With upper lower images](Screenshots/sample_withImageUpperAndLowerLabel.png)
+  
+  </td>
 </tr>
 </table>
 
