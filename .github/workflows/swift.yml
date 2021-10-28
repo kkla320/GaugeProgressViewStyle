@@ -16,6 +16,8 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set Xcode version
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app
+    - name: Swift version
+      run: swift --version
     - name: Run tests
       run: xcodebuild -scheme GaugeProgressViewStyle -destination '${{ matrix.platform }}' test | xcpretty
         
