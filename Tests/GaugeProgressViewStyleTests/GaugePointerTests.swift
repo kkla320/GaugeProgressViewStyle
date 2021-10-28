@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 import XCTest
 import SnapshotTesting
 
@@ -23,7 +24,7 @@ final class GaugePointerTests: XCTestCase {
             angle: .degrees(0)
         )
         
-        assertSnapshot(matching: gaugePointer, as: .image(layout: .fixed(width: 300, height: 300)))
+        XCTAssertSnapshot(matching: gaugePointer, as: .image(size: CGSize(width: 300, height: 300)))
     }
     
     func test_at90Degrees() {
@@ -33,6 +34,6 @@ final class GaugePointerTests: XCTestCase {
             angle: .degrees(90)
         )
         
-        assertSnapshot(matching: gaugePointer, as: .image(layout: .fixed(width: 300, height: 300)))
+        XCTAssertSnapshot(matching: gaugePointer, as: .image(size: CGSize(width: 300, height: 300)))
     }
 }

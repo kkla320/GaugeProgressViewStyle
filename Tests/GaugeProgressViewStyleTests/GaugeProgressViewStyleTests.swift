@@ -21,7 +21,7 @@ final class GaugeProgressViewStyleTests: XCTestCase {
             .progressViewStyle(.gauge())
             .padding()
         
-        assertSnapshot(matching: gaugeProgressView, as: .image(layout: .fixed(width: 250, height: 200)))
+        XCTAssertSnapshot(matching: gaugeProgressView, as: .image(size: CGSize(width: 250, height: 200)))
     }
     
     func test_withCustomThickness() {
@@ -29,7 +29,7 @@ final class GaugeProgressViewStyleTests: XCTestCase {
             .progressViewStyle(.gauge(thickness: 20))
             .padding()
         
-        assertSnapshot(matching: gaugeProgressView, as: .image(layout: .fixed(width: 250, height: 200)))
+        XCTAssertSnapshot(matching: gaugeProgressView, as: .image(size: CGSize(width: 250, height: 200)))
     }
     
     func test_withLabel() {
@@ -39,7 +39,7 @@ final class GaugeProgressViewStyleTests: XCTestCase {
             .progressViewStyle(.gauge())
             .padding()
         
-        assertSnapshot(matching: gaugeProgressView, as: .image(layout: .fixed(width: 250, height: 200)))
+        XCTAssertSnapshot(matching: gaugeProgressView, as: .image(size: CGSize(width: 250, height: 200)))
     }
     
     func test_withTextUpperAndLowerLabel() {
@@ -53,7 +53,7 @@ final class GaugeProgressViewStyleTests: XCTestCase {
             )
             .padding()
         
-        assertSnapshot(matching: gaugeProgressView, as: .image(layout: .fixed(width: 250, height: 200)))
+        XCTAssertSnapshot(matching: gaugeProgressView, as: .image(size: CGSize(width: 250, height: 200)))
     }
     
     func test_withImageUpperAndLowerLabel() {
@@ -67,6 +67,6 @@ final class GaugeProgressViewStyleTests: XCTestCase {
             )
             .padding()
         
-        assertSnapshot(matching: gaugeProgressView, as: .image(layout: .fixed(width: 250, height: 200)))
+        XCTAssertSnapshot(matching: gaugeProgressView, as: .image(size: CGSize(width: 250, height: 200)))
     }
 }
