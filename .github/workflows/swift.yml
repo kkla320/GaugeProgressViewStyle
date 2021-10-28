@@ -20,7 +20,7 @@ jobs:
       run: xcodebuild -scheme GaugeProgressViewStyle -destination ${{ matrix.platform }} test | xcpretty
         
   documentation:
-    needs: build
+    needs: test
     
     runs-on: ubuntu-latest
     
