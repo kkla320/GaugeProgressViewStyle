@@ -10,8 +10,13 @@ jobs:
   test:
     strategy:
       matrix:
-        platform: ["platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro", "platform=macOS,arch=x86_64", "platform=macOS,arch=x86_64,variant=Mac Catalyst"]
-        sdk: ["iphonesimulator15.0", "macosx11.1", "macosx11.1"]
+        include:
+        - platform: "platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro"
+          sdk: "iphonesimulator15.0"
+        - platform: "platform=macOS,arch=x86_64"
+          sdk: "macosx11.3"
+        - platform: "platform=macOS,arch=x86_64,variant=Mac Catalyst"
+          sdk: "macosx11.3"
     runs-on: macos-11
     steps:
     - uses: actions/checkout@v2
