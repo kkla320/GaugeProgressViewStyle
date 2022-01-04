@@ -70,7 +70,7 @@ struct Ring_Previews: PreviewProvider {
             startAngle: .degrees(0),
             endAngle: .degrees(90)
         )
-        .stroke(.blue, lineWidth: 2)
+        .stroke(Color.blue, lineWidth: 2)
         .previewLayout(.fixed(width: 300, height: 300))
     }
 }
