@@ -19,6 +19,8 @@ final class RingTests: XCTestCase {
     func test_startAngleAt0_endAngleAt90() {
         let ring = Ring(thickness: 20, startAngle: .degrees(0), endAngle: .degrees(90))
         
+        print(ring)
+        
         XCTAssertSnapshot(matching: ring, as: .image(size: CGSize(width: 300, height: 300)))
     }
     

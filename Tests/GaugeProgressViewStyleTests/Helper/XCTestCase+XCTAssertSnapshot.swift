@@ -20,7 +20,14 @@ extension XCTestCase {
         #if os(iOS) && !targetEnvironment(macCatalyst)
         assertSnapshot(matching: try matching(), as: snapshotting, named: "iOS", file: file, testName: testName, line: line)
         #elseif os(macOS)
-        assertSnapshot(matching: try matching(), as: snapshotting, named: "macOS", file: file, testName: testName, line: line)
+        assertSnapshot(
+            matching: try matching(),
+            as: snapshotting,
+            named: "macOS",
+            file: file,
+            testName: testName,
+            line: line
+        )
         #elseif targetEnvironment(macCatalyst)
         assertSnapshot(matching: try matching(), as: snapshotting, named: "macCatalyst", file: file, testName: testName, line: line)
         #endif
@@ -31,7 +38,9 @@ extension XCTestCase {
 extension Snapshotting where Value: SwiftUI.View, Format == UIImage {
     public static func image(size: CGSize) -> Snapshotting {
         return Snapshotting<Value, UIImage>.image(
-            layout: .fixed(width: size.width, height: size.height)
+            precision: 0.95,
+            layout: .fixed(width: size.width, height: size.height),
+            traits: UITraitCollection(displayScale: 2)
         )
     }
 }
@@ -39,9 +48,11 @@ extension Snapshotting where Value: SwiftUI.View, Format == UIImage {
 extension Snapshotting where Value: SwiftUI.View, Format == NSImage {
     public static func image(size: CGSize) -> Snapshotting {
         let correctedSize = CGSize(width: size.width, height: size.height)
-        return Snapshotting<NSViewController, NSImage>.image(size: correctedSize).pullback {
-            NSHostingController(rootView: $0.background(Color.white))
-        }
+        return Snapshotting<NSViewController, NSImage>
+            .image(size: correctedSize)
+            .pullback {
+                NSHostingController(rootView: $0.background(Color.white))
+            }
     }
 }
 #endif
