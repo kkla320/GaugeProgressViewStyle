@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         platform: ["platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro", "platform=macOS,arch=x86_64", "platform=macOS,arch=x86_64,variant=Mac Catalyst"]
+        sdk: ["iphonesimulator15.0", "macosx11.1", "macosx11.1"]
     runs-on: macos-11
     steps:
     - uses: actions/checkout@v2
@@ -19,7 +20,7 @@ jobs:
     - name: Swift version
       run: swift --version
     - name: Run tests
-      run: xcodebuild -scheme GaugeProgressViewStyle -destination '${{ matrix.platform }}' test | xcpretty
+      run: xcodebuild -scheme GaugeProgressViewStyle -destination '${{ matrix.platform }}' -sdk '${{ matrix.sdk }}' test | xcpretty
         
   documentation:
     needs: test
