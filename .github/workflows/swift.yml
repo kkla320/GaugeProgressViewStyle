@@ -7,23 +7,22 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
-
+  test:
+    strategy:
+      matrix:
+        platform: ["platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro", "platform=macOS,arch=x86_64", "platform=macOS,arch=x86_64,variant=Mac Catalyst"]
     runs-on: macos-11
-
     steps:
     - uses: actions/checkout@v2
     - name: Set Xcode version
       run: sudo xcode-select --switch /Applications/Xcode_13.0.app
-    - name: Get Swift version
+    - name: Swift version
       run: swift --version
-    - name: Build
-      run: xcodebuild -scheme GaugeProgressViewStyle -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro'
     - name: Run tests
-      run: xcodebuild -scheme GaugeProgressViewStyle -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro' test | xcpretty
+      run: xcodebuild -scheme GaugeProgressViewStyle -destination '${{ matrix.platform }}' test | xcpretty
         
   documentation:
-    needs: build
+    needs: test
     
     runs-on: ubuntu-latest
     
