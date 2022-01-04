@@ -10,7 +10,7 @@ import SwiftUI
 
 extension AngularGradient {
     static var trafficLight: AngularGradient {
-        AngularGradient(
+        return .angularGradient(
             colors: [
                 .red,
                 .yellow,

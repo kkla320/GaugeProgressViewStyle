@@ -17,10 +17,12 @@ extension XCTestCase {
         testName: String = #function,
         line: UInt = #line
     ) {
-        #if os(iOS)
+        #if os(iOS) && !targetEnvironment(macCatalyst)
         assertSnapshot(matching: try matching(), as: snapshotting, named: "iOS", file: file, testName: testName, line: line)
         #elseif os(macOS)
         assertSnapshot(matching: try matching(), as: snapshotting, named: "macOS", file: file, testName: testName, line: line)
+        #elseif targetEnvironment(macCatalyst)
+        assertSnapshot(matching: try matching(), as: snapshotting, named: "macCatalyst", file: file, testName: testName, line: line)
         #endif
     }
 }
