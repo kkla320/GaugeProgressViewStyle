@@ -13,10 +13,13 @@ jobs:
         include:
         - platform: "platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro"
           sdk: "iphonesimulator15.2"
+          resultName: "iOS"
         - platform: "platform=macOS,arch=x86_64"
           sdk: "macosx12.1"
+          resultName: "macOS"
         - platform: "platform=macOS,arch=x86_64,variant=Mac Catalyst"
           sdk: "macosx12.1"
+          resultName: "catalyst"
     runs-on: macos-11
     steps:
     - uses: actions/checkout@v2
@@ -25,7 +28,12 @@ jobs:
     - name: Swift version
       run: swift --version
     - name: Run tests
-      run: xcodebuild -scheme GaugeProgressViewStyle -destination '${{ matrix.platform }}' -sdk '${{ matrix.sdk }}' test | xcpretty
+      run: xcodebuild -scheme GaugeProgressViewStyle -destination '${{ matrix.platform }}' -sdk '${{ matrix.sdk }}' -resultBundlePath './${{ matrix.resultName }}.xcresult' test | xcpretty
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.3.1
+      with:
+        name: '${{ matrix.resultName }}'
+        path: '${{ matrix.resultName }}.xcresult'
         
   documentation:
     needs: test
