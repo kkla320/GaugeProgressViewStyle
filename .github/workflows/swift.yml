@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         include:
-        - platform: "platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro"
+        - platform: "platform=iOS Simulator,OS=15.2,name=iPhone 11 Pro"
           sdk: "iphonesimulator15.2"
           resultName: "iOS"
         - platform: "platform=macOS,arch=x86_64"
