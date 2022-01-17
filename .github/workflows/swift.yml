@@ -20,6 +20,9 @@ jobs:
         - platform: "platform=macOS,arch=x86_64,variant=Mac Catalyst"
           sdk: "macosx12.1"
           resultName: "catalyst"
+        - platform: "platform=tvOS Simulator,OS=15.2,name=Apple TV 4K (2nd generation)"
+          sdk: "appletvsimulator15.2"
+          resultName: "tvOS"
     runs-on: macos-11
     steps:
     - uses: actions/checkout@v2
