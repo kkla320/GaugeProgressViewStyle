@@ -26,7 +26,7 @@ struct Ring: Shape {
             endAngle: endAngle,
             clockwise: false
         )
-         
+        
         path.addArc(
             center: center + CGPoint(angle: endAngle, hypothenuse: (gaugeRadius - (thickness / 2))),
             radius: thickness / 2,
