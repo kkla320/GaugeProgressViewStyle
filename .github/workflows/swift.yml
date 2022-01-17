@@ -7,40 +7,30 @@ on:
     branches: [ develop ]
 
 jobs:
-  build:
-
+  test:
+    strategy:
+      matrix:
+        include:
+        - platform: "platform=iOS Simulator,OS=15.2,name=iPhone 11 Pro"
+          sdk: "iphonesimulator15.2"
+          resultName: "iOS"
+        - platform: "platform=macOS,arch=x86_64"
+          sdk: "macosx12.1"
+          resultName: "macOS"
+        - platform: "platform=macOS,arch=x86_64,variant=Mac Catalyst"
+          sdk: "macosx12.1"
+          resultName: "catalyst"
     runs-on: macos-11
-
     steps:
     - uses: actions/checkout@v2
     - name: Set Xcode version
-      run: sudo xcode-select --switch /Applications/Xcode_13.0.app
-    - name: Get Swift version
+      run: sudo xcode-select --switch /Applications/Xcode_13.2.app
+    - name: Swift version
       run: swift --version
-    - name: Build
-      run: xcodebuild -scheme GaugeProgressViewStyle -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro'
     - name: Run tests
-      run: xcodebuild -scheme GaugeProgressViewStyle -destination 'platform=iOS Simulator,OS=15.0,name=iPhone 11 Pro' test | xcpretty
-        
-  documentation:
-    needs: build
-    
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v2
+      run: xcodebuild -scheme GaugeProgressViewStyle -destination '${{ matrix.platform }}' -sdk '${{ matrix.sdk }}' -resultBundlePath './${{ matrix.resultName }}.xcresult' test | xcpretty
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v2.3.1
       with:
-        ref: develop
-    - name: Generate Documentation
-      uses: SwiftDocOrg/swift-doc@master
-      with:
-        inputs: "Sources"
-        module-name: GaugeProgressViewStyle
-        output: "./docs"
-    - name: Upload Documentation to Wiki
-      uses: SwiftDocOrg/github-wiki-publish-action@v1
-      with:
-        path: "./docs"
-      env:
-        GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-      
+        name: '${{ matrix.resultName }}'
+        path: '${{ matrix.resultName }}.xcresult'
