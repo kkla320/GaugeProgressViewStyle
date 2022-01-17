@@ -34,26 +34,3 @@ jobs:
       with:
         name: '${{ matrix.resultName }}'
         path: '${{ matrix.resultName }}.xcresult'
-        
-  documentation:
-    needs: test
-    
-    runs-on: ubuntu-latest
-    
-    steps:
-    - uses: actions/checkout@v2
-      with:
-        ref: develop
-    - name: Generate Documentation
-      uses: SwiftDocOrg/swift-doc@master
-      with:
-        inputs: "Sources"
-        module-name: GaugeProgressViewStyle
-        output: "./docs"
-    - name: Upload Documentation to Wiki
-      uses: SwiftDocOrg/github-wiki-publish-action@v1
-      with:
-        path: "./docs"
-      env:
-        GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_PERSONAL_ACCESS_TOKEN }}
-      
