@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "Trigonometry",
+        "repositoryURL": "https://github.com/kkla320/Trigonometry",
+        "state": {
+          "branch": null,
+          "revision": "97f1043f8495bd549c4f4909e16671129df57c12",
+          "version": "1.0.0"
+        }
+      },
+      {
         "package": "ViewInspector",
         "repositoryURL": "https://github.com/nalexn/ViewInspector.git",
         "state": {
