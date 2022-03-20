@@ -12,9 +12,9 @@ extension AngularGradient {
     static var trafficLight: AngularGradient {
         AngularGradient(
             colors: [
-                .red,
-                .yellow,
-                .green
+                Color.red,
+                Color.yellow,
+                Color.green
             ],
             center: .center,
             startAngle: .angularGradientGaugeStart,

@@ -26,7 +26,7 @@ struct Ring: Shape {
             endAngle: endAngle,
             clockwise: false
         )
-         
+        
         path.addArc(
             center: center + CGPoint(angle: endAngle, hypothenuse: (gaugeRadius - (thickness / 2))),
             radius: thickness / 2,
@@ -70,7 +70,7 @@ struct Ring_Previews: PreviewProvider {
             startAngle: .degrees(0),
             endAngle: .degrees(90)
         )
-        .stroke(.blue, lineWidth: 2)
+        .stroke(Color.blue, lineWidth: 2)
         .previewLayout(.fixed(width: 300, height: 300))
     }
 }

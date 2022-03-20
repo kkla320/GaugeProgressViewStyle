@@ -38,7 +38,7 @@ public struct GaugeProgressViewStyle<S: ShapeStyle & View, LowerLabel: View, Upp
     }
 }
 
-@available(iOS 15, *)
+@available(iOS 15, tvOS 14, *)
 struct GaugeProgressViewStyle_Preview: PreviewProvider {
     static var previews: some View {
         Group {

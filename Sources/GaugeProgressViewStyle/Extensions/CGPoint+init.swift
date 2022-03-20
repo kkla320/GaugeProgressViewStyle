@@ -8,12 +8,13 @@
 import Foundation
 import CoreGraphics
 import SwiftUI
+import Trigonometry
 
 extension CGPoint {
-    init(angle: Angle, hypothenuse: CGFloat) {
+    init(angle: SwiftUI.Angle, hypothenuse: CGFloat) {
         self.init(
-            x: hypothenuse * cos(angle.radians),
-            y: hypothenuse * sin(angle.radians)
+            x: Double.adjacent(angle: angle, hypothenuse: hypothenuse),
+            y: Double.opposite(angle: angle, hypothenuse: hypothenuse)
         )
     }
 }
