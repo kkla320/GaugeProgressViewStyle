@@ -5,9 +5,9 @@
         "package": "Trigonometry",
         "repositoryURL": "https://github.com/kkla320/Trigonometry",
         "state": {
-          "branch": "fix/#1_Angles",
-          "revision": "7c21377c1d1f2b242a68dd02b1e68088421de7d9",
-          "version": null
+          "branch": null,
+          "revision": "e6e9b1d36b6792457b2c90719d96b605c1366d00",
+          "version": "2.0.0"
         }
       },
       {
